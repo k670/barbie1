@@ -47,5 +47,18 @@ public class DataInit implements ApplicationRunner {
         shopDAO.save(shop);
         accountDAO.save(account);
         accountDAO.save(account2);
+
+
+        for (int i = 1; i < 4; i++) {
+            ClothesEntity clothesEntity1 = new ClothesEntity();
+            clothesEntity1.setName("body_"+i+"a");
+            clothesDAO.save(clothesEntity1);
+            ClothesEntity clothesEntity2 = new ClothesEntity();
+            clothesEntity2.setName("body_"+i+"b");
+            clothesDAO.save(clothesEntity2);
+            ClothesEntity clothesEntity3 = new ClothesEntity();
+            clothesEntity3.setName("body_"+i+"c");
+            clothesDAO.save(clothesEntity3);
+        }
     }
 }

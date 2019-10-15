@@ -11,15 +11,37 @@ services:
       MYSQL_PASSWORD: password
       MYSQL_USER: sa
 
-#  userapp:
-#    build:
-#      context: .
-#    ports:
-#      - 8080:8080
-#    depends_on:
-#      - db
-#    environment:
-#      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/test
-#      SPRING_DATASOURCE_USER: sa
-#      SPRING_DATASOURCE_PASSWORD: password
-#      SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver
+  eurekaserver:
+    image: stoc/eureka
+    ports:
+      - 8761:8761
+
+  userapp:
+    build:
+      context: ./user-service
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+      - eurekaserver
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/test
+      SPRING_DATASOURCE_USER: sa
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8761/eureka
+
+  wheelapp:
+    build:
+      context: ./wheel-of-fortune-service
+    ports:
+      - 8081:8081
+    depends_on:
+      - db
+      - eurekaserver
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/test
+      SPRING_DATASOURCE_USER: sa
+      SPRING_DATASOURCE_PASSWORD: password
+      SPRING_DATASOURCE_DRIVER-CLASS-NAME: com.mysql.cj.jdbc.Driver
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8761/eureka

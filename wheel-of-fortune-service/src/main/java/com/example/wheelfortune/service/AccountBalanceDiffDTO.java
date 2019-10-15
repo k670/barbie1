@@ -1,4 +1,4 @@
-package com.courses.barbie;
+package com.example.wheelfortune.service;
 
 import lombok.Builder;
 import lombok.Data;
@@ -9,3 +9,4 @@ public class AccountBalanceDiffDTO {
     private int accountId;
     private int balanceDifference;
 }
+

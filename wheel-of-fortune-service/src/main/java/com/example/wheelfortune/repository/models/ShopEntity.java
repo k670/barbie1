@@ -33,5 +33,8 @@ public class ShopEntity {
             inverseJoinColumns = @JoinColumn(name = "clothes_id"))
     private List<ClothesEntity> shopClothes = new ArrayList<>();
 
-
+    public void addClothes(ClothesEntity someClothes){
+        shopClothes.add(someClothes);
+        someClothes.getClothesShops().add(this);
+    }
 }

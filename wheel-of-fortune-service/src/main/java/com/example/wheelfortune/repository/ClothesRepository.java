@@ -1,10 +1,7 @@
 package com.example.wheelfortune.repository;
 
-import java.util.Collection;
-
-import com.example.wheelfortune.repository.models.ClothesModel;
+import com.example.wheelfortune.repository.models.ClothesEntity;
 import org.springframework.data.repository.CrudRepository;
 
-public interface ClothesRepository extends CrudRepository<ClothesModel, Integer> {
-    Collection<ClothesModel> findByShopName(String shopName);
+public interface ClothesRepository extends CrudRepository<ClothesEntity, Integer> {
 }

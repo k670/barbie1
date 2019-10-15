@@ -1,4 +1,4 @@
-package com.courses.barbie.entities;
+package com.example.wheelfortune.repository.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,13 +37,4 @@ public class ClothesEntity {
     @ManyToMany(mappedBy = "accountClothes", fetch = FetchType.LAZY)
     private List<AccountEntity> clothesAccounts = new ArrayList<>();
 
-    public void addShop(ShopEntity shop){
-        clothesShops.add(shop);
-        shop.getShopClothes().add(this);
-    }
-
-    public void addAccount(AccountEntity account){
-        clothesAccounts.add(account);
-        account.getAccountClothes().add(this);
-    }
 }

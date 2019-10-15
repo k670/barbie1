@@ -23,11 +23,11 @@ public class WheelFortuneController {
 
     @GetMapping(path = "/spin/{id}")
     public ResponseEntity<UserWinModel> startGenerateBonus(@PathVariable long id) {
-        return ResponseEntity.ok().body(UserWinModel.builder().clouthesName(bonusService.generateWinClothes(id)).build());
+        return ResponseEntity.ok().body(UserWinModel.builder().clothesName(bonusService.generateWinClothes(id)).build());
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<WheelFortuneStatusModel> getPrice(@PathVariable long id) {
+    public ResponseEntity<WheelFortuneStatusModel> getAccess(@PathVariable long id) {
         return ResponseEntity.ok(bonusService.getPrice(id));
     }
 

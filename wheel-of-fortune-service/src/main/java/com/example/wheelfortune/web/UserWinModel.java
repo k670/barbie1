@@ -4,5 +4,5 @@ import lombok.Builder;
 
 @Builder
 public class UserWinModel {
-    private String clouthesName;
+    private String clothesName;
 }

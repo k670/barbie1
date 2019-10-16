@@ -1,4 +1,4 @@
-package com.example.wheelfortune.service;
+package com.example.wheelfortune.integration;
 
 import lombok.Builder;
 import lombok.Data;

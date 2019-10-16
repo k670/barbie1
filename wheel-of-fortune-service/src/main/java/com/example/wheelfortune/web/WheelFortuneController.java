@@ -2,7 +2,6 @@ package com.example.wheelfortune.web;
 
 import com.example.wheelfortune.service.BonusService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/wheelfortune", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(path = "/wheelfortune")
 @Slf4j
 public class WheelFortuneController {
 
@@ -27,8 +26,8 @@ public class WheelFortuneController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<WheelFortuneStatusModel> getAccess(@PathVariable int id) {
-        return ResponseEntity.ok(bonusService.getPrice(id));
+    public WheelFortuneStatusModel getAccess(@PathVariable int id) {
+        return bonusService.getPrice(id);
     }
 
 }

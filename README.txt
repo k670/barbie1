@@ -1,5 +1,5 @@
 //run in  terminal
-mvn clean package
+//mvn clean package for every services
 docker-compose build
 docker-compose up
 

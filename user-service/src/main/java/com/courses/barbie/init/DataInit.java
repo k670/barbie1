@@ -49,7 +49,7 @@ public class DataInit implements ApplicationRunner {
         accountDAO.save(account2);
 
 
-        for (int i = 1; i < 4; i++) {
+        for (int i = 1; i < 3; i++) {
             ClothesEntity clothesEntity1 = new ClothesEntity();
             clothesEntity1.setName("body_"+i+"a");
             clothesDAO.save(clothesEntity1);
@@ -60,5 +60,15 @@ public class DataInit implements ApplicationRunner {
             clothesEntity3.setName("body_"+i+"c");
             clothesDAO.save(clothesEntity3);
         }
+        int i = 1;
+        ClothesEntity clothesEntity1 = new ClothesEntity();
+        clothesEntity1.setName("shoes_"+i+"a");
+        clothesDAO.save(clothesEntity1);
+        ClothesEntity clothesEntity2 = new ClothesEntity();
+        clothesEntity2.setName("shoes_"+i+"b");
+        clothesDAO.save(clothesEntity2);
+        ClothesEntity clothesEntity3 = new ClothesEntity();
+        clothesEntity3.setName("shoes_"+i+"c");
+        clothesDAO.save(clothesEntity3);
     }
 }

@@ -3,6 +3,7 @@ package com.example.wheelfortune.web;
 import com.example.wheelfortune.service.BonusService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +21,13 @@ public class WheelFortuneController {
         this.bonusService = bonusService;
     }
 
+    @CrossOrigin
     @GetMapping(path = "/spin/{id}")
     public ResponseEntity<UserWinModel> startGenerateBonus(@PathVariable int id) {
         return ResponseEntity.ok().body(UserWinModel.builder().clothesName(bonusService.generateWinClothes(id)).build());
     }
 
+    @CrossOrigin
     @GetMapping(path = "/{id}")
     public WheelFortuneStatusModel getAccess(@PathVariable int id) {
         return bonusService.getPrice(id);

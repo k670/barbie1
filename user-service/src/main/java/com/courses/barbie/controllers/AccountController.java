@@ -3,6 +3,7 @@ package com.courses.barbie.controllers;
 import com.courses.barbie.AccountBalanceDiffDTO;
 import com.courses.barbie.entities.AccountEntity;
 import com.courses.barbie.services.AccountService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@Slf4j
 public class AccountController {
 
     @Autowired
@@ -29,6 +31,7 @@ public class AccountController {
 
     @PostMapping(value = "/account", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public void changeAccountBalance(@RequestBody AccountBalanceDiffDTO accountBalanceDiff) {
+        log.info("AccountBalanceDiffDTO {}, {}",accountBalanceDiff.getAccountId(),accountBalanceDiff.getBalanceDifference());
         accountService.changeAccountBalance(accountBalanceDiff);
     }
 

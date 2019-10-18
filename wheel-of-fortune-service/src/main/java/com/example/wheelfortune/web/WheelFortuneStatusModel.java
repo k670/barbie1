@@ -8,4 +8,5 @@ import lombok.Value;
 public class WheelFortuneStatusModel {
     private long price;
     private long timeToWait;
+    private boolean enoughMoney;
 }
